@@ -1,0 +1,21 @@
+<h1 th:text="${title}"></h1>
+<form method="get" action="/">
+    <div>
+        <label>
+            <input type="text" th:name="searchTerm" th:value="*{searchTerm}" />
+        </label>
+        <span>
+                <button class="btn btn-danger">
+                    Search
+                </button>
+
+            </span>
+    </div>
+</form>
+<table>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td> <a th:text="${item.name}" th:href="@{/item/details/{id}(id=${item.id})}"> </a> </td>
+    </tr>
+    </tbody>
+</table>
