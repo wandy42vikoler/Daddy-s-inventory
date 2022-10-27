@@ -3,12 +3,14 @@ package com.codecool.dadsinventory.controller;
 import com.codecool.dadsinventory.model.Item;
 import com.codecool.dadsinventory.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 
@@ -32,6 +34,7 @@ public class ItemController {
     }
 
     @GetMapping("/item/details/{id}")
+    @Secured("ROLE_DAD")
     public String getItemById(@PathVariable("id") Long id, Model model) {
         Item item = itemService.getById(id);
         model.addAttribute("item", item);

@@ -4,10 +4,12 @@ import com.codecool.dadsinventory.service.InitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class DadsInventoryApplication {
 
     @Autowired
